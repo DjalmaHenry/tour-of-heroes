@@ -6,9 +6,10 @@ import { Hero } from '../hero';
   providedIn: 'root',
 })
 
+//Memória de dados do servidor remoto.
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const heroes = [
+    const heroes = [ //Array de heróis.
       { id: 1, name: 'Spider-Man' },
       { id: 2, name: 'Iron-Man' },
       { id: 3, name: 'Thor' },
