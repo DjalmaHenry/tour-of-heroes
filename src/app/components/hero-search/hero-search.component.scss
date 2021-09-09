@@ -7,21 +7,24 @@ label {
   font-weight: bold;
   font-size: 1.2rem;
   margin-top: 1rem;
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
   display: flex;
   justify-content: center;
 }
+
 input {
   padding: .5rem;
   width: 100%;
   max-width: 600px;
+  border-radius: 6px;
   box-sizing: border-box;
   display: block;
   margin: auto;
+  border-color: #400e5f;
 }
 
 input:focus {
-  outline: #336699 auto 1px;
+  outline: #400e5f auto 1px;
 }
 
 li {
@@ -29,17 +32,19 @@ li {
   display: flex;
   justify-content: center;
 }
+
 .search-result li a {
-  border-bottom: 1px solid gray;
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
+  background: #400e5f;
+  border-bottom: 2px solid #400e5f;
+  border-left: 2px solid #400e5f;
+  border-right: 2px solid #400e5f;
   display: inline-block;
   width: 100%;
   max-width: 600px;
   padding: .5rem;
   box-sizing: border-box;
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .search-result li a:hover {

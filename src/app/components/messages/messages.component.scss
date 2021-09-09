@@ -5,6 +5,8 @@
 h2 {
   color: #A80000;
   font-weight: lighter;
+  display: flex;
+  justify-content: center;
 }
 
 .clear {
@@ -15,8 +17,17 @@ h2 {
   border-radius: 4px;
   font-size: 1rem;
   border: none;
+  display: block;
+  margin: auto;
 }
+
 .clear:hover {
   color: white;
   background-color: #42545C;
+}
+
+.chat {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
 }

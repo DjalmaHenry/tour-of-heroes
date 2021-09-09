@@ -2,11 +2,18 @@
   font-family: ZCOOL KuaiLe, Arial, Helvetica, sans-serif;
 }
 
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
 .heroes {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 15em;
+  display: block;
+  margin: auto;
 }
 .heroes li {
   position: relative;
@@ -48,8 +55,8 @@
   line-height: 1em;
   position: relative;
   left: -1px;
-  top: -4px;
-  height: 1.8em;
+  top: -6px;
+  height: 1.999em;
   min-width: 16px;
   text-align: right;
   margin-right: .8em;
@@ -62,11 +69,25 @@ input {
   padding: .5rem;
   margin: 1rem 0;
   box-sizing: border-box;
+  margin: 12px 0 12px;
+  display: block;
+  margin: auto;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border-color: #400e5f;
+}
+
+input:focus {
+  outline: #400e5f auto 1px;
 }
 
 label {
-  color: #435960;
+  color: #400e5f;
   font-weight: bold;
+  font-size: 1.2rem;
+  margin: 12px 0 12px;
+  display: flex;
+  justify-content: center;
 }
 
 .add-button {
@@ -76,6 +97,9 @@ label {
   margin-bottom: 2rem;
   border-radius: 4px;
   border: none;
+  margin: 12px 0 12px;
+  display: block;
+  margin: auto;
  }
 
  .add-button:hover {

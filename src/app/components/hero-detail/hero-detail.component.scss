@@ -2,14 +2,40 @@
   font-family: ZCOOL KuaiLe, Arial, Helvetica, sans-serif;
 }
 
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
 span, label {
-  color: #435960;
+  color: #400e5f;
   font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.id {
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
 }
 
 input {
   font-size: 1em;
   padding: .5rem;
+  display: block;
+  margin: auto;
+  margin-top: 12px;
+  border-radius: 6px;
+  border-color: #400e5f;
+}
+
+input:focus {
+  outline: #400e5f auto 1px;
 }
 
 button {
@@ -31,4 +57,9 @@ button:disabled {
   background-color: #eee;
   color: #ccc;
   cursor: auto;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
 }
