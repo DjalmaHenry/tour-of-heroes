@@ -13,17 +13,31 @@
 
 <br>
 
-## 📷 Tela de início (PC)
+## 📷 Tela do dashboard (PC)
 
 <p align="center">
-  <img alt="visão do site no computador" src="https://user-images.githubusercontent.com/45500812/123530601-af73a500-d6d2-11eb-834c-5d75acfc0d68.png" width="100%">
+  <img alt="visão do site no computador" src="https://user-images.githubusercontent.com/45500812/132765962-882b6939-93b7-4d0d-9079-8897f4a175d8.jpeg" width="100%">
 </p>
 
-## 📷 Tela de início (Mobile)
+## 📷 Tela de heróis (PC)
 
 <p align="center">
-  <img alt="visão do site no celular" src="https://user-images.githubusercontent.com/45500812/123530634-0f6a4b80-d6d3-11eb-8827-a56d193c29b1.jpeg" align="center" width="30%">
+  <img alt="visão do site no computador" src="https://user-images.githubusercontent.com/45500812/132766026-47db2b68-65ea-47de-a021-eeac1c9b191c.jpeg" width="100%">
 </p>
+
+## 📷 Tela de detalhes de um herói (PC)
+
+<p align="center">
+  <img alt="visão do site no computador" src="https://user-images.githubusercontent.com/45500812/132766128-7648fc8f-0dd1-49cb-b13e-e80118fb2f03.jpeg" width="100%">
+</p>
+
+## 📷 Telas (Mobile)
+
+<div style="display: inline_block" align="center">
+    <img alt="sala visão admin" src="https://user-images.githubusercontent.com/45500812/132766248-0bedc8bb-1c59-4e47-a435-9384fc17579a.jpeg" width="30%">
+    <img alt="sala visão admin" src="https://user-images.githubusercontent.com/45500812/132766254-24523212-42ce-4f30-ac87-07079ca90625.jpeg" width="30%">
+    <img alt="sala visão admin" src="https://user-images.githubusercontent.com/45500812/132766262-c9ab2de6-2ed3-4629-845e-bc07bd5a6a35.jpeg" width="30%">
+</div>
 
 ## ✨ Tecnologias
 
