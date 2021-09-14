@@ -60,6 +60,7 @@ Você pode acessar o projeto final através [desse link](https://tour-of-heroes-
 ## 🚀 Como executar
 
 - Clone o repositório
+- Acesse a Branch "microservicos"
 - Instale o Node.js com NPM
 - Instale as dependências do Angular CLI com `npm install -g @angular/cli`
 - Instale as dependências do NestJS com `npm i -g @nestjs/cli`
