@@ -59,7 +59,9 @@ Você pode acessar o projeto final através [desse link](https://tour-of-heroes-
 ## 🚀 Como executar
 
 - Clone o repositório
-- Instale as dependências do Angular CLI
+- Instale o Node.js com NPM
+- Instale as dependências do Angular CLI com `npm install -g @angular/cli`
+- Instale o pacote do Node com `npm install`
 - Abra o projeto no terminal e digite `ng serve --open`
 
 ---
