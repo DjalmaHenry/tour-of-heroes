@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tour-of-heroes-dj": {
+      "hosting": {
+        "tour-of-heroes": [
+          "tour-of-heroes-dj"
+        ]
+      }
+    }
+  }
+}
