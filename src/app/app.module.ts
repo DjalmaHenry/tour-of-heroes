@@ -16,13 +16,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 
 import { environment } from 'src/environments/environment';
-import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
-import {
-  connectFirestoreEmulator,
-  enableIndexedDbPersistence,
-  getFirestore,
-  provideFirestore,
-} from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [
@@ -41,13 +36,8 @@ import {
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
     }),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => {
-      const firestore = getFirestore();
-      connectFirestoreEmulator(firestore, 'localhost', 8080);
-      enableIndexedDbPersistence(firestore);
-      return firestore;
-    }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent],

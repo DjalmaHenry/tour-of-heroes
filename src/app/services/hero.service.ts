@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Hero } from '../hero';
 import { MessageService } from './message.service';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -21,8 +22,17 @@ export class HeroService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
-  ) { }
+    private messageService: MessageService,
+    private db: AngularFirestore
+  ) {
+    this.db.doc<Hero[]>('heroes/1').valueChanges();
+  }
+
+
+  // // Pega todos os heróis.
+  // getHeroes() { //retorna um array observable de heroi
+  //   return this.db.doc<Hero[]>('heroes/1').valueChanges();
+  // };
 
   // Pega todos os heróis.
   getHeroes(): Observable<Hero[]> { //retorna um array observable de heroi
@@ -50,13 +60,19 @@ export class HeroService {
     );
   }
 
-  // Adiciona um novo herói ao servidor e retorna um observable do novo herói.
-  addHero(hero: Hero): Observable<Hero> {
-    return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
-      catchError(this.handleError<Hero>('addHero'))
-    );
-  }
+    // Adiciona um novo herói ao firestore.
+    addHero(hero: Hero) {
+      hero.id = 4;
+      return this.db.collection('heroes').doc(`${hero.id}`).set(hero);
+    }
+
+  // // Adiciona um novo herói ao servidor e retorna um observable do novo herói.
+  // addHero(hero: Hero): Observable<Hero> {
+  //   return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
+  //     tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
+  //     catchError(this.handleError<Hero>('addHero'))
+  //   );
+  // }
 
   //Exclui um herói do servidor.
   deleteHero(id: number): Observable<Hero> {
