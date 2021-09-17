@@ -20,7 +20,7 @@ export class HeroesComponent implements OnInit {
   // Pega todos os heróis.
   getHeroes(): void {
     this.heroService.getHeroes()
-    .subscribe(heroes => this.heroes = heroes);
+    .subscribe(heroes => {if(heroes){this.heroes = heroes}});
   }
 
   //Adiciona um novo herói

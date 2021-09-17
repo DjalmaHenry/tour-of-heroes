@@ -19,6 +19,6 @@ export class DashboardComponent implements OnInit {
   // Pega os heróis da posição 1 até 5.
   getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+      .subscribe(heroes => {if(heroes){this.heroes = heroes.slice(1, 5)}});
   }
 }

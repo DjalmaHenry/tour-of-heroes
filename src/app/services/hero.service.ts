@@ -29,19 +29,22 @@ export class HeroService {
   }
 
 
-  // // Pega todos os heróis.
-  // getHeroes() { //retorna um array observable de heroi
-  //   return this.db.doc<Hero[]>('heroes/1').valueChanges();
-  // };
-
   // Pega todos os heróis.
-  getHeroes(): Observable<Hero[]> { //retorna um array observable de heroi
-    return this.http.get<Hero[]>(this.heroesUrl)
-      .pipe(
-        tap(_ => this.log('fetched heroes')),
-        catchError(this.handleError<Hero[]>('getHeroes', []))
-      );
-  }
+  getHeroes(): Observable<Hero[] | void> { //retorna um array observable de heroi
+    // return this.db.doc<Hero[]>('heroes/1').valueChanges();
+    const result = this.db.collection('heroes').doc<Hero[]>('1').valueChanges();
+    console.log(result.forEach(x => console.log(x)));
+    return result;
+  };
+
+  // // Pega todos os heróis.
+  // getHeroes(): Observable<Hero[]> { //retorna um array observable de heroi
+  //   return this.http.get<Hero[]>(this.heroesUrl)
+  //     .pipe(
+  //       tap(_ => this.log('fetched heroes')),
+  //       catchError(this.handleError<Hero[]>('getHeroes', []))
+  //     );
+  // }
 
   // Retorna o herói pelo id especificado. Será erro 404 se o id não for encontrado.
   getHero(id: number): Observable<Hero> { //retorna um observable de heroi
