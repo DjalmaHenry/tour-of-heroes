@@ -24,67 +24,34 @@ export class HeroService {
     private http: HttpClient,
     private messageService: MessageService,
     private db: AngularFirestore
-  ) {
-    this.db.doc<Hero[]>('heroes/1').valueChanges();
-  }
+  ) {}
 
 
   // Pega todos os heróis.
   getHeroes(): Observable<Hero[] | void> { //retorna um array observable de heroi
-    // return this.db.doc<Hero[]>('heroes/1').valueChanges();
-    const result = this.db.collection('heroes').doc<Hero[]>('1').valueChanges();
-    console.log(result.forEach(x => console.log(x)));
-    return result;
+    return this.db.collection<Hero>('heroes').valueChanges();
   };
 
-  // // Pega todos os heróis.
-  // getHeroes(): Observable<Hero[]> { //retorna um array observable de heroi
-  //   return this.http.get<Hero[]>(this.heroesUrl)
-  //     .pipe(
-  //       tap(_ => this.log('fetched heroes')),
-  //       catchError(this.handleError<Hero[]>('getHeroes', []))
-  //     );
-  // }
-
   // Retorna o herói pelo id especificado. Será erro 404 se o id não for encontrado.
-  getHero(id: number): Observable<Hero> { //retorna um observable de heroi
-    const url = `${this.heroesUrl}/${id}`;
-    return this.http.get<Hero>(url).pipe(
-      tap(_ => this.log(`fetched hero id=${id}`)),
-      catchError(this.handleError<Hero>(`getHero id=${id}`))
-    );
+  getHero(id: number): Observable<Hero | void> { //retorna um observable de heroi
+    return this.db.collection('heroes').doc<Hero>(`${id}`).valueChanges();
   }
 
   // Atualiza os dados de um herói no servidor e retorna um observable do herói.
   updateHero(hero: Hero): Observable<any> {
-    return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap(_ => this.log(`updated hero id=${hero.id}`)),
-      catchError(this.handleError<any>('updateHero'))
-    );
+    this.db.collection('heroes').doc<Hero>(`${hero.id}`).update(hero);
+    return this.db.collection('heroes').doc<Hero>(`${hero.id}`).valueChanges();
   }
 
-    // Adiciona um novo herói ao firestore.
-    addHero(hero: Hero) {
-      hero.id = 4;
-      return this.db.collection('heroes').doc(`${hero.id}`).set(hero);
-    }
-
-  // // Adiciona um novo herói ao servidor e retorna um observable do novo herói.
-  // addHero(hero: Hero): Observable<Hero> {
-  //   return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
-  //     tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
-  //     catchError(this.handleError<Hero>('addHero'))
-  //   );
-  // }
+  // Adiciona um novo herói ao firestore.
+  addHero(hero: Hero) {
+    hero.id = 5;
+    return this.db.collection('heroes').doc(`${hero.id}`).set(hero);
+  }
 
   //Exclui um herói do servidor.
-  deleteHero(id: number): Observable<Hero> {
-    const url = `${this.heroesUrl}/${id}`;
-
-    return this.http.delete<Hero>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted hero id=${id}`)),
-      catchError(this.handleError<Hero>('deleteHero'))
-    );
+  deleteHero(id: number) {
+    return this.db.collection('heroes').doc<Hero>(`${id}`).delete();
   }
 
   //Busca por um herói pelo nome.
